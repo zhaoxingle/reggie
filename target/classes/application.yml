@@ -1,0 +1,33 @@
+# 服务器端口
+server:
+  port: 8080
+spring:
+  # 应用程序名称
+  application:
+    name: reggie
+  # 数据源配置
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 123456
+
+# MyBatis Plus配置
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射  employee里面idNumber对应数据库里面id_number.
+    #这个选项用于配置MyBatis Plus是否将数据库表和列名中的下划线转换为驼峰命名法。
+    #当设置为 true 时，例如，数据库列 id_number 会映射到Java实体中的 idNumber 字段。
+    map-underscore-to-camel-case: true
+    #这个选项用于指定MyBatis Plus的日志实现。
+    #在这里，org.apache.ibatis.logging.stdout.StdOutImpl 表示使用控制台输出作为日志记录。您可以根据需要选择不同的日志实现。
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    #这个选项用于配置数据库主键ID的生成策略。
+    #在这里，ASSIGN_ID 表示使用自定义的主键生成策略。您可以根据需求选择其他支持的主键生成策略，如 AUTO、INPUT、ID_WORKER 等。
+    db-config:
+      id-type: ASSIGN_ID
+reggie:
+  path: E:\how_find_a_job\3projects\reggie\reggie\src\main\resources\backend\images\
+
